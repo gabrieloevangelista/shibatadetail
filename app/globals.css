@@ -234,7 +234,13 @@
     }
   }
 
-  /* Remove outline completely on mouse interactions */
+  /* Remove outline completely from all links */
+  a, a:hover, a:focus, a:active, a:visited {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove outline from all interactive elements */
   *:focus:not(:focus-visible) {
     outline: none !important;
   }
@@ -243,16 +249,22 @@
     outline: none !important;
   }
 
-  a:focus, button:focus, input:focus, textarea:focus, select:focus {
+  button:focus, input:focus, textarea:focus, select:focus {
     outline: none !important;
   }
 
-  a:active, button:active {
+  button:active {
     outline: none !important;
   }
 
-  /* Only show outline on keyboard navigation */
-  *:focus-visible {
+  /* Completely disable focus-visible for links */
+  a:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Only show outline on keyboard navigation for non-link elements */
+  button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: 2px solid hsl(var(--primary)) !important;
     outline-offset: 2px;
   }

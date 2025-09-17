@@ -70,7 +70,7 @@ export const Header = memo(function Header() {
         <div className="flex items-center">
           <Link
             href="/"
-            className="hover:opacity-80 focus:opacity-80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-opacity rounded"
+            className="hover:opacity-80 focus:opacity-80 transition-opacity rounded"
           >
             <ShibataLogo className="h-[70px] w-auto" />
           </Link>
