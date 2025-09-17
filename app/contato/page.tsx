@@ -94,7 +94,25 @@ export default function ContatoPage() {
                     {info.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">{info.title}</h3>
-                  <p className="text-muted-foreground font-medium">{info.content}</p>
+                  {info.title === "E-mail" ? (
+                    <a 
+                      href={`mailto:${info.content}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground font-medium hover:text-primary transition-colors"
+                    >
+                      {info.content}
+                    </a>
+                  ) : info.title === "Telefone" ? (
+                    <a 
+                      href={`tel:${info.content.replace(/[^0-9]/g, '')}`}
+                      className="text-muted-foreground font-medium hover:text-primary transition-colors"
+                    >
+                      {info.content}
+                    </a>
+                  ) : (
+                    <p className="text-muted-foreground font-medium">{info.content}</p>
+                  )}
                   <p className="text-muted-foreground text-sm">{info.subtitle}</p>
                 </div>
               ))}
