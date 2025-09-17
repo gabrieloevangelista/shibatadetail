@@ -14,6 +14,8 @@ export function FooterSection() {
         <div className="flex justify-start items-start gap-3">
           <a
             href="https://www.instagram.com/shibatapremiumdetail"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             className="w-4 h-4 flex items-center justify-center"
           >
@@ -87,6 +89,8 @@ export function FooterSection() {
             </a>
             <a
               href="https://wa.me/5541998760734"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
               Agendamento
