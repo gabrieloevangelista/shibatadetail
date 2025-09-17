@@ -50,35 +50,35 @@ export function FooterSection() {
         <div className="flex flex-col justify-start items-start gap-3">
           <h3 className="text-muted-foreground text-sm font-medium leading-5">Serviços</h3>
           <div className="flex flex-col justify-end items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            <span className="text-foreground text-sm font-normal leading-5">
               Lavagem Premium
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Detalhamento
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Polimento
-            </a>
+            </span>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-3">
           <h3 className="text-muted-foreground text-sm font-medium leading-5">Empresa</h3>
           <div className="flex flex-col justify-center items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            <span className="text-foreground text-sm font-normal leading-5">
               Sobre nós
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Nossa equipe
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Trabalhe conosco
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Parceiros
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Contato
-            </a>
+            </span>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-3">
@@ -95,15 +95,15 @@ export function FooterSection() {
             >
               Agendamento
             </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            <span className="text-foreground text-sm font-normal leading-5">
               Orçamento
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Localização
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+            </span>
+            <span className="text-foreground text-sm font-normal leading-5">
               Suporte
-            </a>
+            </span>
           </div>
         </div>
       </div>
