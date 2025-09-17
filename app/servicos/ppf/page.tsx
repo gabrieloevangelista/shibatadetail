@@ -68,7 +68,7 @@ export default function PPFPage() {
           <AnimatedSection delay={0.1}>
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Paint Protection Film</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Paint Protection Film</h1>
                 <p className="text-xl text-muted-foreground mb-8">
                   A proteção definitiva para sua pintura. Filme transparente de poliuretano que preserva a beleza
                   original do seu veículo contra todos os tipos de danos.

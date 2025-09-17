@@ -68,7 +68,7 @@ export default function VitrificacaoPage() {
           <AnimatedSection delay={0.1}>
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Vitrificação Cerâmica</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Vitrificação Cerâmica</h1>
                 <p className="text-xl text-muted-foreground mb-8">
                   A mais avançada proteção para seu veículo. Coating cerâmico de última geração que oferece proteção
                   superior por até 5 anos com garantia.

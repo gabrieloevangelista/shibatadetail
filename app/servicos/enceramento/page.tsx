@@ -44,7 +44,7 @@ export default function EnceramentoPage() {
           <AnimatedSection delay={0.1}>
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Enceramento e Proteção</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Enceramento e Proteção</h1>
                 <p className="text-xl text-muted-foreground mb-8">
                   Proteção superior com ceras premium que realçam o brilho natural da pintura e criam uma barreira
                   contra agentes externos por até 6 meses.

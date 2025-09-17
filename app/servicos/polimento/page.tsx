@@ -65,7 +65,7 @@ export default function PolimentoPage() {
           <AnimatedSection delay={0.1}>
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Polimento e Correção</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Polimento e Correção</h1>
                 <p className="text-xl text-muted-foreground mb-8">
                   Restauração profissional da pintura, eliminando riscos, hologramas e imperfeições para devolver o
                   brilho e profundidade originais do seu veículo.
