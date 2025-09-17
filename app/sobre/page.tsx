@@ -23,8 +23,7 @@ export default function SobrePage() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
                 <Image
-                  src="/drive-download-20250917T151352Z-1-001/ -07.jpg"
-                  src="/professional-car-detailing-workshop-with-premium-e.jpg"
+                  src="/iloveimg-resized/ -06.jpg"
                   alt="Workshop Shibata Premium Detail"
                   width={600}
                   height={400}
