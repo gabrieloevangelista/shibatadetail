@@ -3,7 +3,6 @@ import Link from "next/link"
 
 const BentoCard = ({ title, description, Icon, href }) => (
   <Link href={href} prefetch={true} className="block">
-  <Link href={href} className="block">
     <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative hover:scale-105 transition-transform duration-300 cursor-pointer">
       <div className="absolute inset-0 rounded-2xl bg-black/30 backdrop-blur-md shadow-[0px_2px_4px_rgba(0,0,0,0.16)] outline outline-1 outline-white/20 outline-offset-[-1px] hover:bg-black/40 transition-all duration-500 ease-out" />
 
@@ -37,7 +36,6 @@ export function BentoSection() {
       description: "Higienização completa de estofados, painéis e acabamentos.",
       Icon: Sparkles,
       href: "/servicos/detalhamento-interno",
-      href: "/servicos",
     },
     {
       title: "Polimento e Correção",

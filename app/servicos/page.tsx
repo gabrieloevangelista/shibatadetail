@@ -18,7 +18,6 @@ const services = [
     title: "Detalhamento Interno",
     description: "Básica R$380 (forro de teto, bancos), Média R$580 (higienização completa), Completa R$750 (com revitalização e hidratação).",
     image: "/drive-download-20250917T151352Z-1-001/ -29.jpg",
-    image: "/red-luxury-car-interior-detailing-service.jpg",
     Icon: Sparkles,
   },
   {
@@ -26,7 +25,6 @@ const services = [
     title: "Polimento e Correção",
     description: "Polimento Leve R$500, Técnico R$1.200. Remoção de riscos e restauração do brilho original.",
     image: "/drive-download-20250917T151352Z-1-001/ -03.jpg",
-    image: "/red-sports-car-paint-correction-polishing.jpg",
     Icon: Star,
   },
   {
@@ -34,7 +32,6 @@ const services = [
     title: "Vitrificação",
     description: "Proteção cerâmica de alta durabilidade para pintura e vidros. Valor sob consulta.",
     image: "/drive-download-20250917T151352Z-1-001/ -07.jpg",
-    image: "/red-luxury-car-ceramic-coating-application.jpg",
     Icon: Shield,
   },
   {
@@ -42,14 +39,12 @@ const services = [
     title: "Aplicação de PPF",
     description: "Paint Protection Film. Kit básico (maçaneta, coluna), Kit frontal (para-choque, capô), Kit full (completo). Valor sob consulta.",
     image: "/drive-download-20250917T151352Z-1-001/ -10.jpg",
-    image: "/luxury-red-sports-car-ppf-installation-professional.jpg",
     Icon: Car,
   },
 ]
 
 const BentoCard = ({ title, description, image, Icon, id }) => (
   <Link href={`/servicos/${id}`} prefetch={true} className="block">
-  <Link href={`/servicos/${id}`} className="block">
     <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative group hover:scale-105 transition-transform duration-300 cursor-pointer">
       <div
         className="absolute inset-0 rounded-2xl"
