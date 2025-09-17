@@ -76,11 +76,8 @@ export default function PPFPage() {
                   <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-primary text-white hover:bg-primary/90 px-8 py-3 w-full md:w-auto">
                       Agendar Serviço
-                  </Button>
-                </Link>
-                <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                  Agendar Serviço
-                  </Button>
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div>
