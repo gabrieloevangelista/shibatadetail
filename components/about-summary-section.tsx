@@ -8,7 +8,7 @@ export function AboutSummarySection() {
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Conheça a Shibata Premium Detail</h2>
         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-          Com mais de 15 anos de experiência no mercado automotivo, a Shibata Premium Detail nasceu da paixão por
+          Com mais de 20 anos de experiência no mercado automotivo, a Shibata Premium Detail nasceu da paixão por
           transformar veículos em verdadeiras obras de arte. Fundada por Ronaldo Shibata, nossa empresa se tornou
           referência em estética automotiva premium, oferecendo serviços de alta qualidade e cursos profissionais que
           formam os melhores detailers do mercado.

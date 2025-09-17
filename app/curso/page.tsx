@@ -227,7 +227,7 @@ export default function CursoPage() {
               <div>
                 <h2 className="text-3xl font-bold text-white mb-6">Por que escolher nosso curso?</h2>
                 <p className="text-muted-foreground mb-4">
-                  Com mais de 10 anos de experiência no mercado, Ronaldo Shibata desenvolveu uma metodologia única que
+                  Com mais de 20 anos de experiência no mercado, Ronaldo Shibata desenvolveu uma metodologia única que
                   combina teoria sólida com prática intensiva.
                 </p>
                 <p className="text-muted-foreground mb-4">

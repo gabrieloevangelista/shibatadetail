@@ -14,7 +14,7 @@ export default function SobrePage() {
             <div className="text-center mb-16">
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Sobre a Shibata Premium Detail</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Excelência em estética automotiva com mais de 10 anos de experiência
+                Excelência em estética automotiva com mais de 20 anos de experiência
               </p>
             </div>
           </AnimatedSection>
@@ -35,7 +35,7 @@ export default function SobrePage() {
                 <h2 className="text-2xl font-bold text-white mb-6">Nossa História</h2>
                 <p className="text-muted-foreground mb-4">
                   A Shibata Premium Detail nasceu da paixão por transformar veículos em verdadeiras obras de arte. Com
-                  mais de uma década de experiência no mercado de estética automotiva, desenvolvemos técnicas exclusivas
+                  mais de duas décadas de experiência no mercado de estética automotiva, desenvolvemos técnicas exclusivas
                   que garantem resultados excepcionais.
                 </p>
                 <p className="text-muted-foreground mb-4">
