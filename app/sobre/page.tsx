@@ -11,16 +11,16 @@ export default function SobrePage() {
       <main className="pt-24 pb-16" role="main">
         <div className="max-w-4xl mx-auto px-6">
           <AnimatedSection delay={0.1}>
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Sobre a Shibata Premium Detail</h1>
+            <section className="text-center mb-16" aria-labelledby="main-heading">
+              <h1 id="main-heading" className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Sobre a Shibata Premium Detail</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Excelência em estética automotiva com mais de 20 anos de experiência
               </p>
-            </div>
+            </section>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <section className="grid md:grid-cols-2 gap-12 items-center mb-16" aria-labelledby="history-heading">
               <div>
                 <Image
                   src="/iloveimg-resized/ -06.jpg"
@@ -31,8 +31,8 @@ export default function SobrePage() {
                   priority
                 />
               </div>
-              <div>
-                <h2 className="text-2xl font-bold text-white mb-6">Nossa História</h2>
+              <article>
+                <h2 id="history-heading" className="text-2xl font-bold text-white mb-6">Nossa História</h2>
                 <p className="text-muted-foreground mb-4">
                   A Shibata Premium Detail nasceu da paixão por transformar veículos em verdadeiras obras de arte. Com
                   mais de duas décadas de experiência no mercado de estética automotiva, desenvolvemos técnicas exclusivas
@@ -46,13 +46,13 @@ export default function SobrePage() {
                   Utilizamos apenas produtos premium e equipamentos de última geração para garantir que cada veículo
                   receba o tratamento que merece.
                 </p>
-              </div>
-            </div>
+              </article>
+            </section>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">Nossa Missão</h2>
+            <section className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 mb-16" aria-labelledby="mission-heading">
+              <h2 id="mission-heading" className="text-3xl font-bold text-white mb-8 text-center">Nossa Missão</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -103,12 +103,12 @@ export default function SobrePage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </section>
           </AnimatedSection>
 
           <AnimatedSection delay={0.4}>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-8">Localização</h2>
+            <section className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center" aria-labelledby="location-heading">
+              <h2 id="location-heading" className="text-3xl font-bold text-white mb-8">Localização</h2>
               <p className="text-muted-foreground mb-6">R. Brasílio Itiberê, 2361 - Eurocar Select</p>
               <div className="bg-card/30 rounded-lg p-4">
                 <p className="text-sm text-muted-foreground">
@@ -116,7 +116,7 @@ export default function SobrePage() {
                   de todos os portes com máxima qualidade.
                 </p>
               </div>
-            </div>
+            </section>
           </AnimatedSection>
         </div>
       </main>
