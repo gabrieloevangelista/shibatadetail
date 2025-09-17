@@ -55,9 +55,6 @@ export default function DetalhamentoInternoPage() {
                       Agendar Serviço
                     </Button>
                   </Link>
-                  <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Agendar Serviço
-                  </Button>
                 </div>
               </div>
               <div>

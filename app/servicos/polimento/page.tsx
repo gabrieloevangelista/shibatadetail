@@ -73,12 +73,9 @@ export default function PolimentoPage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 w-full md:w-auto">
-                      Agendar Avaliação
+                      Agendar Serviço
                     </Button>
                   </Link>
-                  <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Agendar Serviço
-                  </Button>
                 </div>
               </div>
               <div>
