@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="transparent"/>
+  
+  <!-- Red S shapes based on the provided logo image -->
+  <g fill="#FF0000">
+    <!-- Top S shape -->
+    <path d="M80 45 L300 45 Q340 45 340 65 Q340 85 300 85 L120 85 Q80 85 80 105 Q80 125 120 125 L280 125 Q320 125 320 145 Q320 165 280 165 L60 165 Q20 165 20 145 Q20 125 60 125 L240 125 Q280 125 280 105 Q280 85 240 85 L80 85 Q40 85 40 65 Q40 45 80 45 Z"/>
+    
+    <!-- Middle S shape -->
+    <path d="M100 75 L320 75 Q360 75 360 95 Q360 115 320 115 L140 115 Q100 115 100 135 Q100 155 140 155 L300 155 Q340 155 340 175 Q340 195 300 195 L80 195 Q40 195 40 175 Q40 155 80 155 L260 155 Q300 155 300 135 Q300 115 260 115 L100 115 Q60 115 60 95 Q60 75 100 75 Z"/>
+    
+    <!-- Bottom S shape -->
+    <path d="M120 105 L340 105 Q380 105 380 125 Q380 145 340 145 L160 145 Q120 145 120 165 Q120 185 160 185 L320 185 Q360 185 360 205 Q360 225 320 225 L100 225 Q60 225 60 205 Q60 185 100 185 L280 185 Q320 185 320 165 Q320 145 280 145 L120 145 Q80 145 80 125 Q80 105 120 105 Z"/>
+  </g>
+  
+  <!-- Premium Detail text -->
+  <text x="200" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FF0000" letter-spacing="2px">PREMIUM DETAIL</text>
+</svg>

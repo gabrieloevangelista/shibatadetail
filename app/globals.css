@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated color palette to dark/black tones with improved contrast */
+    --background: 0 0% 8%; /* Very dark gray/black #141414 */
+    --foreground: 210 20% 98%; /* Brighter white for better contrast #fafbfc */
+
+    --muted: 0 0% 15%; /* Dark gray muted #262626 */
+    --muted-foreground: 210 15% 80%; /* Brighter muted text for better contrast */
+    --muted-foreground-light: 210 15% 85% / 0.5;
+    --muted-foreground-dark: 210 15% 85% / 0.6;
+
+    --card: 0 0% 12% / 0.8; /* Semi-transparent dark gray card */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Primary red color from logo with improved contrast */
+    --primary: 0 100% 55%; /* Slightly brighter red for better contrast #ff1a1a */
+    --primary-foreground: 0 0% 100%; /* White */
+    --primary-dark: 0 100% 40%; /* Darker red */
+    --primary-light: 0 100% 60%; /* Lighter red */
+
+    /* Secondary colors with blue-gray theme */
+    --secondary: 210 20% 88%; /* Light blue-gray #dde1e7 */
+    --secondary-foreground: 215 25% 15%; /* Dark blue-gray */
+
+    --accent: 0 0% 20%; /* Medium dark gray accent */
+    --accent-foreground: 210 20% 98%;
+
+    --border: 210 30% 80% / 0.12; /* Light blue border with opacity */
+    --border-light: 215 25% 20% / 0.15;
+    --border-dark: 215 25% 10% / 0.08;
+
+    --ring: 0 100% 55%; /* Brighter red ring for better visibility */
+
+    /* Added accessibility-specific color variables for better contrast */
+    --success: 142 76% 36%; /* Green with good contrast #16a34a */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%; /* Orange with good contrast #f59e0b */
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%; /* Red with good contrast #ef4444 */
+    --destructive-foreground: 0 0% 100%;
+    --info: 221 83% 53%; /* Blue with good contrast #3b82f6 */
+    --info-foreground: 0 0% 100%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Added gradient background from black to dark gray */
+    background: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 10%) 50%, hsl(0, 0%, 15%) 100%);
+    min-height: 100vh;
+  }
+
+  /* Updated focus styles to only show outline on keyboard navigation */
+  /* Remove default focus outline for mouse clicks */
+  *:focus {
+    outline: none;
+  }
+
+  /* Only show focus outline when navigating with keyboard */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Ensure buttons and interactive elements respect focus-visible */
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible),
+  [role="button"]:focus:not(:focus-visible),
+  [tabindex]:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Enhanced focus indicators for better accessibility when using keyboard */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--ring) / 0.2);
+  }
+
+  /* Improved high contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --foreground: 0 0% 100%; /* Pure white in high contrast mode */
+      --muted-foreground: 0 0% 90%; /* Brighter muted text */
+      --primary: 0 100% 60%; /* Brighter primary color */
+      --border: 0 0% 50%; /* More visible borders */
+    }
+  }
+
+  /* Reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Scrollbar personalizado com efeito vidro */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); /* Increased opacity for better visibility */
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* More visible border */
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4); /* Higher contrast on hover */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1); /* Better contrast */
+  }
+}
+
+/* Added utility classes for accessibility */
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .high-contrast-border {
+    @apply border-2 border-foreground/20;
+  }
+
+  @media (prefers-contrast: high) {
+    .high-contrast-border {
+      @apply border-foreground/50;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  .animate-rotate-in {
+    animation: rotateIn 0.5s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Remove outline completely on mouse interactions */
+  *:focus:not(:focus-visible) {
+    outline: none !important;
+  }
+
+  *:active {
+    outline: none !important;
+  }
+
+  a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: none !important;
+  }
+
+  a:active, button:active {
+    outline: none !important;
+  }
+
+  /* Only show outline on keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary)) !important;
+    outline-offset: 2px;
+  }
+
+  /* Smooth transitions for better UX */
+  a, button {
+    transition: all 0.2s ease-in-out;
+  }
+}
