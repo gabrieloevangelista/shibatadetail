@@ -307,6 +307,27 @@ export default function GaleriaPage() {
         </div>
       </main>
 
+      {/* Stats Section */}
+      <AnimatedSection delay={0.3}>
+        <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 mb-16 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Nossos Números</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">2000+</div>
+              <div className="text-muted-foreground">Veículos Atendidos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">20+</div>
+              <div className="text-muted-foreground">Anos de Experiência</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">2000+</div>
+              <div className="text-muted-foreground">Alunos Formados</div>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
       <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
         <FooterSection />
       </AnimatedSection>

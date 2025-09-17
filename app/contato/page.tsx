@@ -32,7 +32,7 @@ const contactInfo = [
       </svg>
     ),
     title: "Telefone",
-    content: "(41) 99999-9999",
+    content: "(41) 99876-0734",
     subtitle: "WhatsApp resposta imediata",
   },
   {
