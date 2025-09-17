@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
-import { Sun, Droplets, Flask, Sparkles } from "lucide-react"
+import { Sun, Droplets, Beaker, Sparkles } from "lucide-react"
 
 const processSteps = [
   {
@@ -48,7 +48,7 @@ const benefits = [
   {
     title: "Resistência Química",
     description: "Proteção contra chuva ácida e contaminantes",
-    icon: Flask,
+    icon: Beaker,
   },
   {
     title: "Brilho Duradouro",
