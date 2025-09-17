@@ -30,6 +30,17 @@ export function FooterSection() {
           >
             <Instagram className="w-full h-full text-muted-foreground" />
           </a>
+          <a
+            href="https://www.tiktok.com/@shibatapremiumdetail"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            className="w-6 h-6 flex items-center justify-center hover:opacity-80 transition-opacity"
+          >
+            <svg className="w-full h-full text-muted-foreground" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M9 12a4 4 0 1 0 4 4V8.5a5.5 5.5 0 0 0 5.5 5.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
           <a 
             href="tel:+5541998760734" 
             aria-label="Telefone" 
