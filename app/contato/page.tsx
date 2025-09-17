@@ -77,7 +77,7 @@ export default function ContatoPage() {
           {/* Hero Section */}
           <AnimatedSection delay={0.1}>
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Entre em Contato</h1>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 pt-8">Entre em Contato</h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Estamos prontos para atender você e transformar seu veículo. Entre em contato conosco para agendar seu
                 serviço ou tirar suas dúvidas.

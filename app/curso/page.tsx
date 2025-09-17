@@ -165,7 +165,7 @@ export default function CursoPage() {
           {/* Hero Section */}
           <AnimatedSection delay={0.1}>
             <div className="text-center mb-16">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Curso Profissional de Detalhamento</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Curso Profissional de Detalhamento</h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
                 Aprenda as técnicas mais avançadas de estética automotiva com Ronaldo Shibata e transforme sua paixão
                 por carros em uma profissão lucrativa

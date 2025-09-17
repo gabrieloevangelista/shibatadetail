@@ -315,7 +315,7 @@ export default function GaleriaPage() {
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection delay={0.1}>
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Galeria de Trabalhos</h1>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 pt-8">Galeria de Trabalhos</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Confira alguns dos nossos trabalhos realizados com excelência e dedicação
               </p>

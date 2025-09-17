@@ -12,7 +12,7 @@ export default function SobrePage() {
         <div className="max-w-4xl mx-auto px-6">
           <AnimatedSection delay={0.1}>
             <div className="text-center mb-16">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Sobre a Shibata Premium Detail</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Sobre a Shibata Premium Detail</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Excelência em estética automotiva com mais de 20 anos de experiência
               </p>

@@ -44,7 +44,7 @@ export default function LavagemPremiumPage() {
           <AnimatedSection delay={0.1}>
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Lavagem Completa Premium</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Lavagem Completa Premium</h1>
                 <p className="text-xl text-muted-foreground mb-8">
                   Nossa lavagem premium utiliza técnicas profissionais e produtos de alta qualidade para garantir a
                   máxima proteção e brilho da pintura do seu veículo.
