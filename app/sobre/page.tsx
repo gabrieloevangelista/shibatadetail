@@ -8,7 +8,7 @@ export default function SobrePage() {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <Header />
 
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16" role="main">
         <div className="max-w-4xl mx-auto px-6">
           <AnimatedSection delay={0.1}>
             <div className="text-center mb-16">
