@@ -56,7 +56,7 @@ export default function EnceramentoPage() {
                     </Button>
                   </Link>
                   <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Solicitar Orçamento
+                    Agendar Serviço
                   </Button>
                 </div>
               </div>

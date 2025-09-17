@@ -56,13 +56,13 @@ export default function DetalhamentoInternoPage() {
                     </Button>
                   </Link>
                   <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Solicitar Orçamento
+                    Agendar Serviço
                   </Button>
                 </div>
               </div>
               <div>
                 <Image
-                    src="/red-luxury-car-interior-detailing-service.jpg"
+                    src="/iloveimg-resized/ -29.jpg"
                   alt="Detalhamento Interno Shibata"
                   width={600}
                   height={400}
@@ -138,16 +138,6 @@ export default function DetalhamentoInternoPage() {
                     </div>
                   </li>
                 </ul>
-              </div>
-              <div>
-                <Image
-                  src="/red-luxury-car-interior-detailing-service.jpg"
-                  alt="Processo de Detalhamento Interno"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl"
-                  loading="lazy"
-                />
               </div>
             </div>
           </AnimatedSection>

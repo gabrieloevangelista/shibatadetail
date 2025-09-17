@@ -75,17 +75,17 @@ export default function VitrificacaoPage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 w-full md:w-auto">
-                      Agendar Consulta
-                    </Button>
-                  </Link>
-                  <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Solicitar Orçamento
+                      Agendar Serviço
+                  </Button>
+                </Link>
+                <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
+                  Agendar Serviço
                   </Button>
                 </div>
               </div>
               <div>
                 <Image
-                    src="/red-luxury-car-ceramic-coating-application.jpg"
+                    src="/iloveimg-resized/ -09.jpg"
                   alt="Vitrificação Cerâmica"
                   width={600}
                   height={400}
@@ -210,7 +210,7 @@ export default function VitrificacaoPage() {
               </div>
               <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full md:w-auto">
-                  Solicitar Orçamento Gratuito
+                  Agendar Serviço
                 </Button>
               </Link>
             </div>

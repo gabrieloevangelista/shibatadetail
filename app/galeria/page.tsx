@@ -257,9 +257,55 @@ export default function GaleriaPage() {
     setSelectedImage(null)
   }
 
+  const nextImage = () => {
+    const nextIndex = (currentImageIndex + 1) % galleryItems.length
+    setCurrentImageIndex(nextIndex)
+    setSelectedImage(galleryItems[nextIndex].id)
+  }
+
+  const prevImage = () => {
+    const prevIndex = currentImageIndex === 0 ? galleryItems.length - 1 : currentImageIndex - 1
+    setCurrentImageIndex(prevIndex)
+    setSelectedImage(galleryItems[prevIndex].id)
+  }
+
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index)
+    setSelectedImage(galleryItems[index].id)
+  }
+
   const handleImageLoad = (imageId: number) => {
     setLoadedImages(prev => new Set([...prev, imageId]))
   }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!selectedImage) return
+      
+      switch (event.key) {
+        case 'ArrowLeft':
+          prevImage()
+          break
+        case 'ArrowRight':
+          nextImage()
+          break
+        case 'Escape':
+          closeSlideshow()
+          break
+      }
+    }
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'unset'
+    }
+  }, [selectedImage, currentImageIndex])
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -325,12 +371,91 @@ export default function GaleriaPage() {
               <div className="text-muted-foreground">Alunos Formados</div>
             </div>
           </div>
-        </div>
-      </AnimatedSection>
+           <div className="text-center mt-8">
+             <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
+               <Button className="bg-primary text-white hover:bg-primary/90 px-8 py-3 text-lg">
+                 Agendar Serviço
+               </Button>
+             </Link>
+           </div>
+         </div>
+       </AnimatedSection>
 
-      <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-        <FooterSection />
-      </AnimatedSection>
-    </div>
-  )
-}
+        {/* Slideshow Modal */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
+            <div className="relative w-full h-full max-w-6xl max-h-[90vh] flex flex-col">
+              {/* Close Button */}
+              <button
+                onClick={closeSlideshow}
+                className="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors bg-black/50 rounded-full p-2"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Main Image Container */}
+              <div className="flex-1 flex items-center justify-center relative min-h-0">
+                {/* Previous Button */}
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 z-10 text-white hover:text-primary transition-colors bg-black/50 rounded-full p-3"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Image */}
+                <div className="w-full h-full flex items-center justify-center relative">
+                  <Image
+                    src={galleryItems[currentImageIndex]?.image || "/placeholder.svg"}
+                    alt={`Trabalho ${currentImageIndex + 1} da galeria Shibata Premium Detail`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 z-10 text-white hover:text-primary transition-colors bg-black/50 rounded-full p-3"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Bullets Navigation */}
+              <div className="flex justify-center items-center space-x-2 py-6">
+                {galleryItems.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToImage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentImageIndex
+                        ? "bg-primary scale-125"
+                        : "bg-white/50 hover:bg-white/75"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="absolute top-4 left-4 text-white bg-black/50 rounded-full px-3 py-1 text-sm">
+                {currentImageIndex + 1} / {galleryItems.length}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          <FooterSection />
+        </AnimatedSection>
+      </div>
+    )
+  }

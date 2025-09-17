@@ -77,13 +77,13 @@ export default function PolimentoPage() {
                     </Button>
                   </Link>
                   <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Solicitar Orçamento
+                    Agendar Serviço
                   </Button>
                 </div>
               </div>
               <div>
                 <Image
-                    src="/red-sports-car-paint-correction-polishing.jpg"
+                    src="/iloveimg-resized/-03.jpg"
                   alt="Polimento Profissional"
                   width={600}
                   height={400}
@@ -179,16 +179,6 @@ export default function PolimentoPage() {
                     </div>
                   </li>
                 </ul>
-              </div>
-              <div>
-                <Image
-                  src="/red-sports-car-paint-correction-polishing.jpg"
-                  alt="Resultado do Polimento"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl"
-                  loading="lazy"
-                />
               </div>
             </div>
           </AnimatedSection>

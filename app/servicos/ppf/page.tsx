@@ -75,17 +75,17 @@ export default function PPFPage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-primary text-white hover:bg-primary/90 px-8 py-3 w-full md:w-auto">
-                      Agendar Consulta
-                    </Button>
-                  </Link>
-                  <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
-                    Solicitar Orçamento
+                      Agendar Serviço
+                  </Button>
+                </Link>
+                <Button variant="outline" className="px-8 py-3 w-full md:w-auto bg-transparent">
+                  Agendar Serviço
                   </Button>
                 </div>
               </div>
               <div>
                 <Image
-                    src="/luxury-red-sports-car-ppf-installation-professional.jpg"
+                    src="/iloveimg-resized/ -17.jpg"
                   alt="Aplicação de PPF"
                   width={600}
                   height={400}
@@ -223,7 +223,7 @@ export default function PPFPage() {
               </p>
               <Link href="https://wa.me/5541998760734" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary text-white hover:bg-primary/90 px-8 py-3 text-lg w-full md:w-auto">
-                  Solicitar Orçamento Personalizado
+                  Agendar Serviço
                 </Button>
               </Link>
             </div>
