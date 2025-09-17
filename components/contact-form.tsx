@@ -17,6 +17,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submittedData, setSubmittedData] = useState<typeof formData | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -69,6 +70,7 @@ export function ContactForm() {
       })
 
       if (response.ok) {
+        setSubmittedData({ ...formData }) // Armazena os dados antes de limpar
         setSubmitStatus("success")
         setFormData({
           name: "",
@@ -239,9 +241,90 @@ export function ContactForm() {
         )}
       </div>
 
-      {submitStatus === "success" && (
-        <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg" role="alert" aria-live="polite">
-          <p className="text-green-400 text-sm">Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
+      {submitStatus === "success" && submittedData && (
+        <div className="p-6 bg-green-500/10 border border-green-500/30 rounded-xl" role="alert" aria-live="polite">
+          <div className="flex items-center mb-4">
+            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-green-400">Mensagem Enviada com Sucesso!</h3>
+          </div>
+          
+          <div className="bg-background/30 rounded-lg p-4 mb-4">
+            <h4 className="text-white font-medium mb-3">Resumo dos seus dados:</h4>
+            <div className="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <span className="text-muted-foreground">Nome:</span>
+                <p className="text-white font-medium">{submittedData.name}</p>
+              </div>
+              <div>
+                <span className="text-muted-foreground">E-mail:</span>
+                <p className="text-white font-medium">{submittedData.email}</p>
+              </div>
+              {submittedData.phone && (
+                <div>
+                  <span className="text-muted-foreground">Telefone:</span>
+                  <p className="text-white font-medium">{submittedData.phone}</p>
+                </div>
+              )}
+              {submittedData.service && (
+                <div>
+                  <span className="text-muted-foreground">Serviço:</span>
+                  <p className="text-white font-medium">
+                    {submittedData.service === "lavagem-premium" && "Lavagem Premium"}
+                    {submittedData.service === "polimento" && "Polimento e Correção"}
+                    {submittedData.service === "vitrificacao" && "Vitrificação Cerâmica"}
+                    {submittedData.service === "interior" && "Limpeza de Interior"}
+                    {submittedData.service === "ppf" && "Paint Protection Film"}
+                    {submittedData.service === "curso" && "Curso de Detalhamento"}
+                    {submittedData.service === "outros" && "Outros"}
+                  </p>
+                </div>
+              )}
+              {submittedData.vehicle && (
+                <div className="md:col-span-2">
+                  <span className="text-muted-foreground">Veículo:</span>
+                  <p className="text-white font-medium">{submittedData.vehicle}</p>
+                </div>
+              )}
+              <div className="md:col-span-2">
+                <span className="text-muted-foreground">Mensagem:</span>
+                <p className="text-white font-medium mt-1">{submittedData.message}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex-1">
+              <p className="text-green-400 text-sm mb-2">
+                ✅ Recebemos sua solicitação e entraremos em contato em breve!
+              </p>
+              <p className="text-muted-foreground text-xs">
+                Tempo de resposta: até 2 horas em horário comercial
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <a 
+                href="https://wa.me/5541998760734" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors"
+              >
+                WhatsApp
+              </a>
+              <button 
+                onClick={() => {
+                  setSubmitStatus("idle")
+                  setSubmittedData(null)
+                }}
+                className="px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm rounded-lg transition-colors"
+              >
+                Nova Mensagem
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
