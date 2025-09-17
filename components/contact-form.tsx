@@ -177,7 +177,6 @@ export function ContactForm() {
           >
             <option value="">Selecione um serviço</option>
             <option value="lavagem-premium">Lavagem Premium</option>
-            <option value="enceramento">Enceramento e Proteção</option>
             <option value="polimento">Polimento e Correção</option>
             <option value="vitrificacao">Vitrificação Cerâmica</option>
             <option value="interior">Limpeza de Interior</option>
