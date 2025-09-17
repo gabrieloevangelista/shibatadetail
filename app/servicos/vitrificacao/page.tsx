@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import { Sun, Droplets, Flask, Sparkles } from "lucide-react"
 
 const processSteps = [
   {
@@ -37,22 +38,22 @@ const benefits = [
   {
     title: "Proteção UV",
     description: "Bloqueia 99% dos raios UV prejudiciais à pintura",
-    icon: "☀️",
+    icon: Sun,
   },
   {
     title: "Hidrofobicidade",
     description: "Efeito repelente à água facilita a limpeza",
-    icon: "💧",
+    icon: Droplets,
   },
   {
     title: "Resistência Química",
     description: "Proteção contra chuva ácida e contaminantes",
-    icon: "🧪",
+    icon: Flask,
   },
   {
     title: "Brilho Duradouro",
     description: "Mantém o brilho intenso por anos",
-    icon: "✨",
+    icon: Sparkles,
   },
 ]
 
@@ -116,7 +117,9 @@ export default function VitrificacaoPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="bg-card/50 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div className="text-4xl mb-4">{benefit.icon}</div>
+                    <div className="mb-4">
+                  <benefit.icon className="w-12 h-12 text-red-500 stroke-2" />
+                </div>
                     <h3 className="text-lg font-semibold text-white mb-4">{benefit.title}</h3>
                     <p className="text-muted-foreground text-sm">{benefit.description}</p>
                   </div>

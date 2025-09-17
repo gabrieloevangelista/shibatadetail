@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import { Shield, Eye, RotateCcw, FileText } from "lucide-react"
 
 const processSteps = [
   {
@@ -37,22 +38,22 @@ const benefits = [
   {
     title: "Proteção Total",
     description: "Protege contra riscos, pedradas e desgaste natural",
-    icon: "🛡️",
+    icon: Shield,
   },
   {
     title: "Invisível",
     description: "Transparência total, mantém a cor original",
-    icon: "👁️",
+    icon: Eye,
   },
   {
     title: "Auto-Regeneração",
     description: "Micro riscos desaparecem com calor do sol",
-    icon: "🔄",
+    icon: RotateCcw,
   },
   {
     title: "Garantia 10 Anos",
     description: "Cobertura completa contra defeitos e amarelamento",
-    icon: "📜",
+    icon: FileText,
   },
 ]
 
@@ -117,7 +118,9 @@ export default function PPFPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="bg-card/50 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div className="text-4xl mb-4">{benefit.icon}</div>
+                    <div className="mb-4">
+                  <benefit.icon className="w-12 h-12 text-red-500 stroke-2" />
+                </div>
                     <h3 className="text-lg font-semibold text-white mb-3">{benefit.title}</h3>
                     <p className="text-muted-foreground text-sm">{benefit.description}</p>
                   </div>

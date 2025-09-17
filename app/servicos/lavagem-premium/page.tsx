@@ -142,16 +142,6 @@ export default function LavagemPremiumPage() {
                   </li>
                 </ul>
               </div>
-              <div>
-                <Image
-                  src="/red-luxury-car-premium-washing-service.jpg"
-                  alt="Processo de Lavagem"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl"
-                  loading="lazy"
-                />
-              </div>
             </div>
           </AnimatedSection>
 
