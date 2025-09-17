@@ -85,8 +85,7 @@ export default function PPFPage() {
               </div>
               <div>
                 <Image
-                  src="/drive-download-20250917T151352Z-1-001/ -10.jpg"
-                  src="/luxury-red-sports-car-ppf-installation-professional.jpg"
+                    src="/luxury-red-sports-car-ppf-installation-professional.jpg"
                   alt="Aplicação de PPF"
                   width={600}
                   height={400}

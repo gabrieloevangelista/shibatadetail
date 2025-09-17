@@ -62,8 +62,7 @@ export default function DetalhamentoInternoPage() {
               </div>
               <div>
                 <Image
-                  src="/drive-download-20250917T151352Z-1-001/ -29.jpg"
-                  src="/red-luxury-car-interior-detailing-service.jpg"
+                    src="/red-luxury-car-interior-detailing-service.jpg"
                   alt="Detalhamento Interno Shibata"
                   width={600}
                   height={400}

@@ -83,8 +83,7 @@ export default function PolimentoPage() {
               </div>
               <div>
                 <Image
-                  src="/drive-download-20250917T151352Z-1-001/ -03.jpg"
-                  src="/red-sports-car-paint-correction-polishing.jpg"
+                    src="/red-sports-car-paint-correction-polishing.jpg"
                   alt="Polimento Profissional"
                   width={600}
                   height={400}

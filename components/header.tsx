@@ -94,16 +94,6 @@ export const Header = memo(function Header() {
               </Link>
             )
           })}
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleScroll(e, item.href)}
-              className="text-white hover:text-primary focus:text-primary px-4 py-2 rounded-full font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
           <Button
             className="bg-primary text-white hover:bg-primary/90 focus:bg-primary/90 px-6 py-2 font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
             onClick={handleWhatsAppClick}

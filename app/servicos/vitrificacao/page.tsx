@@ -85,8 +85,7 @@ export default function VitrificacaoPage() {
               </div>
               <div>
                 <Image
-                  src="/drive-download-20250917T151352Z-1-001/ -07.jpg"
-                  src="/red-luxury-car-ceramic-coating-application.jpg"
+                    src="/red-luxury-car-ceramic-coating-application.jpg"
                   alt="Vitrificação Cerâmica"
                   width={600}
                   height={400}

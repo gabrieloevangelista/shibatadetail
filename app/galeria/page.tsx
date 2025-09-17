@@ -44,6 +44,41 @@ const galleryItems = [
     description: "Serviço de polimento executado com excelência",
     image: "/iloveimg-resized/-05.jpg",
   },
+  {
+    id: 6,
+    category: "vitrificacao",
+    title: "Trabalho Realizado",
+    description: "Serviço de vitrificação executado com excelência",
+    image: "/iloveimg-resized/ -06.jpg",
+  },
+  {
+    id: 7,
+    category: "vitrificacao",
+    title: "Trabalho Realizado",
+    description: "Serviço de vitrificação executado com excelência",
+    image: "/iloveimg-resized/ -07.jpg",
+  },
+  {
+    id: 8,
+    category: "vitrificacao",
+    title: "Trabalho Realizado",
+    description: "Serviço de vitrificação executado com excelência",
+    image: "/iloveimg-resized/ -08.jpg",
+  },
+  {
+    id: 9,
+    category: "lavagem",
+    title: "Trabalho Realizado",
+    description: "Serviço de lavagem executado com excelência",
+    image: "/iloveimg-resized/ -09.jpg",
+  },
+  {
+    id: 10,
+    category: "lavagem",
+    title: "Trabalho Realizado",
+    description: "Serviço de lavagem executado com excelência",
+    image: "/iloveimg-resized/ -10.jpg",
+  },
 ]
 
 export default function GaleriaPage() {
