@@ -23,7 +23,7 @@ export function WhatsAppFloat() {
     <button
       onClick={handleWhatsAppClick}
       onKeyDown={handleKeyDown}
-      className="fixed bottom-20 md:bottom-6 right-6 z-50 w-14 h-14 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:bg-white/20 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-300 flex items-center justify-center group"
+      className="fixed bottom-20 md:bottom-6 right-6 z-50 w-14 h-14 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:bg-white/20 focus:bg-white/20 focus:outline-none transition-all duration-300 flex items-center justify-center group"
       aria-label="Contato via WhatsApp"
     >
       {/* WhatsApp Icon - White SVG from icons8 */}
