@@ -90,6 +90,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-KVPWC4XV');`
         }} />
         {/* End Google Tag Manager */}
+        
+        {/* Google Ads Conversion Tracking */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16912435359/a8KCCMrrpZ0bEJ-RvYA_',
+    'event_callback': callback
+  });
+  return false;
+}
+          `
+        }} />
+        {/* End Google Ads Conversion Tracking */}
+        
         <link rel="icon" href="/favicon.svg" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/icon-192.png" />

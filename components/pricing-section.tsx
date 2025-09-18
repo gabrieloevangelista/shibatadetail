@@ -5,6 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackWhatsAppConversion } from "@/lib/whatsapp-tracking"
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true)
@@ -205,7 +206,7 @@ export function PricingSection() {
               </div>
               <Button
                 className={`self-stretch px-5 py-2 rounded-[40px] flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${plan.buttonClass}`}
-                onClick={() => window.open(plan.whatsappLink, "_blank")}
+                onClick={() => trackWhatsAppConversion(plan.whatsappLink)}
                 aria-label={`Assinar plano ${plan.name} - ${isAnnual ? plan.annualPrice : plan.monthlyPrice} por mês`}
               >
                 <div className="px-1.5 flex justify-center items-center gap-2">

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { trackWhatsAppConversion } from "@/lib/whatsapp-tracking"
 
 const ShibataLogo = ({ className }: { className?: string }) => (
   <img src="/shibata.png" alt="Shibata Premium Detail" className={className} />
@@ -46,10 +47,8 @@ export const Header = memo(function Header() {
   }, [])
 
   const handleWhatsAppClick = () => {
-    window.open(
-      "https://wa.me/5541998760734?text=Olá! Gostaria de agendar um serviço de estética automotiva na Shibata Premium Detail.",
-      "_blank",
-    )
+    const whatsappUrl = "https://wa.me/5541998760734?text=Olá! Gostaria de agendar um serviço de estética automotiva na Shibata Premium Detail."
+    trackWhatsAppConversion(whatsappUrl)
   }
 
   const handleWhatsAppKeyDown = (e: React.KeyboardEvent) => {

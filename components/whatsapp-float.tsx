@@ -1,13 +1,15 @@
 "use client"
 
 import type React from "react"
+import { trackWhatsAppConversion } from "@/lib/whatsapp-tracking"
 
 export function WhatsAppFloat() {
   const handleWhatsAppClick = () => {
     const phoneNumber = "5541998760734"
     const message = "Olá! Gostaria de saber mais sobre os serviços da Shibata Premium Detail."
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    
+    trackWhatsAppConversion(whatsappUrl)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
