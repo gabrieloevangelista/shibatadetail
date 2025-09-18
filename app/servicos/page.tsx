@@ -10,7 +10,7 @@ const services = [
     id: "lavagem-premium",
     title: "Lavagem Completa Premium",
     description: "Lavagem externa com produtos de alta qualidade. Carro pequeno R$250, médio R$350, grande/SUV/caminhonete R$450.",
-    image: "/red-luxury-car-premium-washing-service.jpg",
+    image: "/iloveimg-resized/ -26.jpg",
     Icon: Droplets,
   },
   {

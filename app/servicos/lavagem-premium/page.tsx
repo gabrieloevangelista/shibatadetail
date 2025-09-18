@@ -59,7 +59,7 @@ export default function LavagemPremiumPage() {
               </div>
               <div>
                 <Image
-                  src="/red-luxury-car-premium-washing-service.jpg"
+                  src="/iloveimg-resized/ -26.jpg"
                   alt="Lavagem Premium Shibata"
                   width={600}
                   height={400}

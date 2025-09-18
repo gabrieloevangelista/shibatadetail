@@ -6,6 +6,7 @@ import "./globals.css"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { MobileTabbar } from "@/components/mobile-tabbar"
 import { SkipNavigation } from "@/components/skip-navigation"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Shibata Premium Detail",
   },
   description:
-    "🚗 Estética automotiva premium em Curitiba com Ronaldo Shibata. Detalhamento profissional, vitrificação cerâmica, polimento, PPF e cursos. Transforme seu veículo com excelência e qualidade garantida.",
+    " Estética automotiva premium em Curitiba com Ronaldo Shibata. Detalhamento profissional, vitrificação cerâmica, polimento, PPF e cursos. Transforme seu veículo com excelência e qualidade garantida.",
   keywords: [
     "estética automotiva",
     "detalhamento automotivo",
@@ -96,6 +97,7 @@ html {
         {children}
         <WhatsAppFloat />
         <MobileTabbar />
+        <Analytics />
       </body>
     </html>
   )
