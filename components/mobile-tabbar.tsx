@@ -1,5 +1,5 @@
 "use client"
-import { Home, Settings, GraduationCap, Phone } from "lucide-react"
+import { Home, Settings, GraduationCap, Phone, Image } from "lucide-react"
 import Link from "next/link"
 import type React from "react"
 import { useEffect, useState } from "react"
@@ -33,6 +33,7 @@ export function MobileTabbar() {
     { name: "Início", href: "/", icon: Home },
     { name: "Serviços", href: "/servicos", icon: Settings },
     { name: "Curso", href: "/curso", icon: GraduationCap },
+    { name: "Galeria", href: "/galeria", icon: Image },
     { name: "Contato", href: "/contato", icon: Phone },
   ]
 
