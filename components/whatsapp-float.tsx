@@ -9,6 +9,7 @@ export function WhatsAppFloat() {
     const message = "Olá! Gostaria de saber mais sobre os serviços da Shibata Premium Detail."
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     
+    console.log('Clicou no botão WhatsApp, abrindo:', whatsappUrl)
     trackWhatsAppConversion(whatsappUrl)
   }
 
@@ -25,6 +26,7 @@ export function WhatsAppFloat() {
       onKeyDown={handleKeyDown}
       className="fixed bottom-20 md:bottom-6 right-6 z-50 w-14 h-14 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:bg-white/20 focus:bg-white/20 focus:outline-none transition-all duration-300 flex items-center justify-center group"
       aria-label="Contato via WhatsApp"
+      type="button"
     >
       {/* WhatsApp Icon - White SVG from icons8 */}
       <svg

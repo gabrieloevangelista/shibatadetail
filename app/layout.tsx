@@ -9,7 +9,7 @@ import { SkipNavigation } from "@/components/skip-navigation"
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://shibatapremiumdetail.com.br"),
   title: {
     default: "Shibata Premium Detail - Estética Automotiva Premium em Curitiba",
     template: "%s | Shibata Premium Detail",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "Shibata Premium Detail",
     "Curitiba",
   ],
-  authors: [{ name: "Shibata Premium Detail", url: "https://shibatapremiumdetail.com" }],
+  authors: [{ name: "Shibata Premium Detail", url: "https://shibatapremiumdetail.com.br" }],
   creator: "Shibata Premium Detail",
   publisher: "Shibata Premium Detail",
   robots: {
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     title: "Shibata Premium Detail - Estética Automotiva Premium em Curitiba",
     description:
       "🚗 Estética automotiva premium em Curitiba com Ronaldo Shibata. Detalhamento profissional, vitrificação cerâmica, polimento, PPF e cursos.",
-    url: "https://shibatapremiumdetail.com",
+    url: "https://shibatapremiumdetail.com.br",
     siteName: "Shibata Premium Detail",
     images: [
       {
-        url: "/favicon.png",
-        width: 512,
-        height: 512,
+        url: "/apple-touch-icon.png",
+        width: 1200,
+        height: 630,
         alt: "Shibata Premium Detail - Logo",
       },
     ],
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shibata Premium Detail - Estética Automotiva Premium em Curitiba",
     description: "🚗 Estética automotiva premium em Curitiba com Ronaldo Shibata. Detalhamento profissional, vitrificação cerâmica, polimento, PPF e cursos.",
-    images: ["/favicon.png"],
+    images: ["/apple-touch-icon.png"],
     creator: "@shibatapremiumdetail",
   },
   icons: {
