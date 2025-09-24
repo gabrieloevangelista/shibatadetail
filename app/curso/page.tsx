@@ -176,12 +176,17 @@ export default function CursoPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/5541998760734?text=Olá! Gostaria de me inscrever no curso de detalhamento profissional da Shibata Premium Detail.",
-                      "_blank",
-                    )
-                  }
+                  onClick={() => {
+                    const phoneNumber = "5541998760734"
+                    const message = "Olá! Gostaria de me inscrever no curso de detalhamento profissional da Shibata Premium Detail."
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+                    
+                    // Importando a função diretamente aqui para evitar problemas de referência
+                    import("@/lib/whatsapp-tracking").then(({ trackWhatsAppConversion }) => {
+                      // Ativa a tag de conversão apenas neste botão
+                      trackWhatsAppConversion(whatsappUrl, true)
+                    })
+                  }}
                 >
                   Inscrever-se Agora
                 </Button>

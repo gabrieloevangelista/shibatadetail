@@ -2,12 +2,12 @@
  * Utilitário para rastreamento de conversões do Google Ads em links do WhatsApp
  */
 
-export const trackWhatsAppConversion = (url: string) => {
+export const trackWhatsAppConversion = (url: string, trackConversion: boolean = false) => {
   // Verifica se estamos no browser
   if (typeof window === 'undefined') return
   
-  // Verifica se a função gtag_report_conversion está disponível
-  if ((window as any).gtag_report_conversion) {
+  // Verifica se a função gtag_report_conversion está disponível e se deve rastrear conversão
+  if (trackConversion && (window as any).gtag_report_conversion) {
     try {
       // Chama a função de conversão e depois abre o link
       (window as any).gtag_report_conversion(url)
@@ -21,12 +21,12 @@ export const trackWhatsAppConversion = (url: string) => {
       window.open(url, "_blank", "noopener,noreferrer")
     }
   } else {
-    // Fallback caso a função não esteja disponível
+    // Abre o link diretamente sem rastreamento
     window.open(url, "_blank", "noopener,noreferrer")
   }
 }
 
-export const openWhatsAppWithTracking = (phoneNumber: string, message: string) => {
+export const openWhatsAppWithTracking = (phoneNumber: string, message: string, trackConversion: boolean = false) => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-  trackWhatsAppConversion(whatsappUrl)
+  trackWhatsAppConversion(whatsappUrl, trackConversion)
 }

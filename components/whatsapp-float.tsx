@@ -10,7 +10,7 @@ export function WhatsAppFloat() {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     
     console.log('Clicou no botão WhatsApp, abrindo:', whatsappUrl)
-    trackWhatsAppConversion(whatsappUrl)
+    trackWhatsAppConversion(whatsappUrl, false) // Não ativa a tag de conversão
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
