@@ -5,6 +5,7 @@ import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
+import { InscriptionModal } from "@/components/inscription-modal"
 
 const courseModules = [
   {
@@ -109,6 +110,8 @@ const benefits = [
 export default function CursoPage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPreview, setIsPreview] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+  const [timeLeft, setTimeLeft] = useState(25)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -118,6 +121,19 @@ export default function CursoPage() {
       videoRef.current.loop = true
       videoRef.current.play().catch(console.error)
     }
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          setShowContent(true)
+          clearInterval(interval)
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(interval)
   }, [])
 
   const handlePlayPause = () => {
@@ -162,9 +178,9 @@ export default function CursoPage() {
 
       <main className="pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-6">
-          {/* Hero Section */}
+          {/* Headline Section & Video */}
           <AnimatedSection delay={0.1}>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-8">Curso Profissional de Detalhamento</h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
                 Aprenda as técnicas mais avançadas de estética automotiva com Ronaldo Shibata e transforme sua paixão
@@ -173,200 +189,194 @@ export default function CursoPage() {
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                 Turmas diurnas e noturnas disponíveis • Mais de 2 mil alunos formados
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
-                  onClick={() => {
-                    const phoneNumber = "5541998760734"
-                    const message = "Olá! Gostaria de me inscrever no curso de detalhamento profissional da Shibata Premium Detail."
-                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-                    
-                    // Importando a função diretamente aqui para evitar problemas de referência
-                    import("@/lib/whatsapp-tracking").then(({ trackWhatsAppConversion }) => {
-                      // Ativa a tag de conversão apenas neste botão
-                      trackWhatsAppConversion(whatsappUrl, true)
-                    })
-                  }}
+              
+              {/* Video Centered */}
+              <div className="w-full md:w-fit max-w-4xl mx-auto relative group mt-8">
+                <video
+                  ref={videoRef}
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_2QBODDdI8A8tsCTNZiinY9ticHig/XBJvyM7_SJO2JB0_QCoq6s/public/sobre-video.mp4"
+                  className="rounded-lg shadow-2xl w-full h-auto md:w-auto md:max-h-[500px]"
+                  controls={!isPreview}
+                  preload="auto"
+                  playsInline
+                  onPlay={handleVideoPlay}
+                  onPause={handleVideoPause}
+                  onEnded={handleVideoEnded}
                 >
-                  Inscrever-se Agora
-                </Button>
-              </div>
-            </div>
-          </AnimatedSection>
+                  Seu navegador não suporta o elemento de vídeo.
+                </video>
 
-          {/* Course Overview */}
-          <AnimatedSection delay={0.2}>
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div className="relative">
-                {/* Glassmorphism Play Button Overlay */}
-                <div className="relative group">
-                  <video
-                    ref={videoRef}
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_2QBODDdI8A8tsCTNZiinY9ticHig/XBJvyM7_SJO2JB0_QCoq6s/public/sobre-video.mp4"
-                    className="rounded-lg shadow-2xl w-full max-h-[480px] h-auto"
-                    controls={!isPreview}
-                    preload="auto"
-                    playsInline
-                    onPlay={handleVideoPlay}
-                    onPause={handleVideoPause}
-                    onEnded={handleVideoEnded}
-                  >
-                    Seu navegador não suporta o elemento de vídeo.
-                  </video>
-
-                  {(isPreview || !isPlaying) && (
-                    <div
-                      className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                      onClick={handlePlayPause}
-                    >
-                      <div className="w-20 h-20 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 transition-all duration-300">
-                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Por que escolher nosso curso?</h2>
-                <p className="text-muted-foreground mb-4">
-                  Com mais de 20 anos de experiência no mercado, Ronaldo Shibata desenvolveu uma metodologia única que
-                  combina teoria sólida com prática intensiva.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  Nosso curso é reconhecido como um dos mais completos do Brasil, formando profissionais capacitados
-                  para atuar no mercado premium de estética automotiva.
-                </p>
-                <p className="text-muted-foreground mb-6">
-                  <strong>Turmas diurnas e noturnas</strong> disponíveis para se adequar à sua rotina.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-card/30 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">30h</div>
-                    <div className="text-sm text-muted-foreground">Carga Horária</div>
-                  </div>
-                  <div className="text-center p-4 bg-card/30 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">2000+</div>
-                    <div className="text-sm text-muted-foreground">Alunos Formados</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Course Modules */}
-          <AnimatedSection delay={0.3}>
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">Conteúdo Programático</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {courseModules.map((module, index) => (
+                {(isPreview || !isPlaying) && (
                   <div
-                    key={index}
-                    className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative"
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                    onClick={handlePlayPause}
                   >
-                    {/* Background with blur effect */}
-                    <div
-                      className="absolute inset-0 rounded-2xl"
-                      style={{
-                        background: "rgba(231, 236, 235, 0.08)",
-                        backdropFilter: "blur(4px)",
-                        WebkitBackdropFilter: "blur(4px)",
-                      }}
-                    />
-                    {/* Additional subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
+                    <div className="w-20 h-20 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                      <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
 
-                    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-4 relative z-10">
-                      <div className="flex justify-between items-start w-full">
-                        <h3 className="text-xl font-semibold text-white">{module.title}</h3>
+              {!showContent && (
+                <div className="mt-8 text-center animate-pulse">
+                  <p className="text-xl text-primary font-semibold mb-2">
+                    Assista ao vídeo para liberar o conteúdo exclusivo
+                  </p>
+                  <p className="text-muted-foreground">
+                    O conteúdo será liberado em <span className="font-bold text-white">{timeLeft}</span> segundos
+                  </p>
+                </div>
+              )}
+            </div>
+          </AnimatedSection>
+
+          {/* Hidden Content revealed after delay */}
+          {showContent && (
+            <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
+              {/* CTA Section */}
+              <div className="flex justify-center mb-16">
+                <InscriptionModal>
+                  <Button
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-xl w-full sm:w-auto shadow-lg animate-pulse"
+                  >
+                    Inscrever-se Agora
+                  </Button>
+                </InscriptionModal>
+              </div>
+
+              {/* Course Overview Details */}
+              <AnimatedSection delay={0.2}>
+                 <div className="max-w-4xl mx-auto text-center mb-16">
+                    <h2 className="text-3xl font-bold text-white mb-6">Por que escolher nosso curso?</h2>
+                    <p className="text-muted-foreground mb-4">
+                      Com mais de 20 anos de experiência no mercado, Ronaldo Shibata desenvolveu uma metodologia única que
+                      combina teoria sólida com prática intensiva.
+                    </p>
+                    <p className="text-muted-foreground mb-4">
+                      Nosso curso é reconhecido como um dos mais completos do Brasil, formando profissionais capacitados
+                      para atuar no mercado premium de estética automotiva.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto mt-8">
+                      <div className="text-center p-4 bg-card/30 rounded-lg">
+                        <div className="text-2xl font-bold text-primary">30h</div>
+                        <div className="text-sm text-muted-foreground">Carga Horária</div>
                       </div>
-                      <ul className="space-y-2 w-full">
-                        {module.topics.map((topic, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-muted-foreground">
-                            <svg
-                              className="w-4 h-4 text-primary flex-shrink-0"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            {topic}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="text-center p-4 bg-card/30 rounded-lg">
+                        <div className="text-2xl font-bold text-primary">2000+</div>
+                        <div className="text-sm text-muted-foreground">Alunos Formados</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+                 </div>
+              </AnimatedSection>
 
-          {/* Benefits */}
-          <AnimatedSection delay={0.4}>
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">O que você recebe</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                      {benefit.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+              {/* Course Modules */}
+              <AnimatedSection delay={0.3}>
+                <div className="mb-16">
+                  <h2 className="text-3xl font-bold text-white mb-8 text-center">Conteúdo Programático</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {courseModules.map((module, index) => (
+                      <div
+                        key={index}
+                        className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative"
+                      >
+                        <div
+                          className="absolute inset-0 rounded-2xl"
+                          style={{
+                            background: "rgba(231, 236, 235, 0.08)",
+                            backdropFilter: "blur(4px)",
+                            WebkitBackdropFilter: "blur(4px)",
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
 
-          {/* Investment */}
-          <AnimatedSection delay={0.5}>
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Investimento</h2>
-              <div className="mb-6">
-                <div className="text-4xl font-bold text-primary mb-2">R$ 1.900</div>
-                <div className="text-muted-foreground">10x sem juros ou R$ 1.700 no PIX</div>
-              </div>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Investimento que se paga em poucos serviços. Nossos alunos relatam retorno do investimento em menos de
-                30 dias após a conclusão do curso.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/5541998760734?text=Olá! Gostaria de me inscrever no curso de detalhamento profissional da Shibata Premium Detail.",
-                      "_blank",
-                    )
-                  }
-                >
-                  Inscrever-se Agora
-                </Button>
-                <Button
-                  variant="outline"
-                  className="px-8 py-3 text-lg bg-transparent w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/5541998760734?text=Olá! Gostaria de falar com um consultor sobre o curso de detalhamento profissional.",
-                      "_blank",
-                    )
-                  }
-                >
-                  Falar com Consultor
-                </Button>
-              </div>
+                        <div className="self-stretch p-6 flex flex-col justify-start items-start gap-4 relative z-10">
+                          <div className="flex justify-between items-start w-full">
+                            <h3 className="text-xl font-semibold text-white">{module.title}</h3>
+                          </div>
+                          <ul className="space-y-2 w-full">
+                            {module.topics.map((topic, idx) => (
+                              <li key={idx} className="flex items-center gap-2 text-muted-foreground">
+                                <svg
+                                  className="w-4 h-4 text-primary flex-shrink-0"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                </svg>
+                                {topic}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* Benefits */}
+              <AnimatedSection delay={0.4}>
+                <div className="mb-16">
+                  <h2 className="text-3xl font-bold text-white mb-8 text-center">O que você recebe</h2>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {benefits.map((benefit, index) => (
+                      <div key={index} className="text-center">
+                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                          {benefit.icon}
+                        </div>
+                        <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
+                        <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* Final CTA Section (antigo Investment) */}
+              <AnimatedSection delay={0.5}>
+                <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center">
+                  <h2 className="text-3xl font-bold text-white mb-4">Garanta sua Vaga</h2>
+                  <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Investimento que se paga em poucos serviços. Nossos alunos relatam retorno do investimento em menos de
+                    30 dias após a conclusão do curso.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <InscriptionModal>
+                      <Button
+                        className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
+                      >
+                        Inscrever-se Agora
+                      </Button>
+                    </InscriptionModal>
+                    <Button
+                      variant="outline"
+                      className="px-8 py-3 text-lg bg-transparent w-full sm:w-auto"
+                      onClick={() =>
+                        window.open(
+                          "https://wa.me/5541998760734?text=Olá! Gostaria de falar com um consultor sobre o curso de detalhamento profissional.",
+                          "_blank",
+                        )
+                      }
+                    >
+                      Falar com Consultor
+                    </Button>
+                  </div>
+                </div>
+              </AnimatedSection>
             </div>
-          </AnimatedSection>
+          )}
         </div>
       </main>
 
-      <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-        <FooterSection />
-      </AnimatedSection>
+      {showContent && (
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          <FooterSection />
+        </AnimatedSection>
+      )}
     </div>
   )
 }
