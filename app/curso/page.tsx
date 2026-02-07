@@ -110,8 +110,6 @@ const benefits = [
 export default function CursoPage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPreview, setIsPreview] = useState(true)
-  const [showContent, setShowContent] = useState(false)
-  const [timeLeft, setTimeLeft] = useState(25)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -121,19 +119,6 @@ export default function CursoPage() {
       videoRef.current.loop = true
       videoRef.current.play().catch(console.error)
     }
-
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          setShowContent(true)
-          clearInterval(interval)
-          return 0
-        }
-        return prev - 1
-      })
-    }, 1000)
-
-    return () => clearInterval(interval)
   }, [])
 
   const handlePlayPause = () => {
@@ -219,23 +204,11 @@ export default function CursoPage() {
                   </div>
                 )}
               </div>
-
-              {!showContent && (
-                <div className="mt-8 text-center animate-pulse">
-                  <p className="text-xl text-primary font-semibold mb-2">
-                    Assista ao vídeo para liberar o conteúdo exclusivo
-                  </p>
-                  <p className="text-muted-foreground">
-                    O conteúdo será liberado em <span className="font-bold text-white">{timeLeft}</span> segundos
-                  </p>
-                </div>
-              )}
             </div>
           </AnimatedSection>
 
-          {/* Hidden Content revealed after delay */}
-          {showContent && (
-            <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          {/* Content Section */}
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
               {/* CTA Section */}
               <div className="flex justify-center mb-16">
                 <InscriptionModal>
@@ -368,15 +341,12 @@ export default function CursoPage() {
                 </div>
               </AnimatedSection>
             </div>
-          )}
         </div>
       </main>
 
-      {showContent && (
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <FooterSection />
-        </AnimatedSection>
-      )}
+      <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        <FooterSection />
+      </AnimatedSection>
     </div>
   )
 }
