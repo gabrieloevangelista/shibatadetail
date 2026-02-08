@@ -72,14 +72,14 @@ export function GraduatesCarousel() {
           <div
             key={index}
             className="flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-            style={{ width: "480px", height: "640px" }}
+            style={{ width: "280px", height: "373px" }}
           >
             <Image
               src={image.src}
               alt={image.alt}
               fill
               className="object-cover"
-              sizes="480px"
+              sizes="280px"
               unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
