@@ -6,6 +6,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { openWhatsAppWithTracking } from "@/lib/whatsapp-tracking"
+import { GraduatesCarousel } from "@/components/graduates-carousel"
 
 const courseModules = [
   {
@@ -311,6 +312,18 @@ export default function CursoPage() {
                       </div>
                     ))}
                   </div>
+                </div>
+              </AnimatedSection>
+
+              {/* Graduates Gallery */}
+              <AnimatedSection delay={0.45}>
+                <div className="mb-16">
+                  <h2 className="text-3xl font-bold text-white mb-4 text-center">Nossos Alunos Formados</h2>
+                  <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
+                    Veja alguns dos nossos alunos que concluíram o curso e receberam certificação profissional em
+                    detalhamento automotivo
+                  </p>
+                  <GraduatesCarousel />
                 </div>
               </AnimatedSection>
 
