@@ -5,7 +5,7 @@ import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
-import { InscriptionModal } from "@/components/inscription-modal"
+import { openWhatsAppWithTracking } from "@/lib/whatsapp-tracking"
 
 const courseModules = [
   {
@@ -211,13 +211,18 @@ export default function CursoPage() {
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
               {/* CTA Section */}
               <div className="flex justify-center mb-16">
-                <InscriptionModal>
-                  <Button
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-xl w-full sm:w-auto shadow-lg animate-pulse"
-                  >
-                    Inscrever-se Agora
-                  </Button>
-                </InscriptionModal>
+                <Button
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-xl w-full sm:w-auto shadow-lg animate-pulse"
+                  onClick={() =>
+                    openWhatsAppWithTracking(
+                      "5541998760734",
+                      "Olá! Quero me inscrever no curso profissional de detalhamento. Gostaria de mais informações sobre as próximas turmas.",
+                      true
+                    )
+                  }
+                >
+                  Inscrever-se Agora
+                </Button>
               </div>
 
               {/* Course Overview Details */}
@@ -318,20 +323,26 @@ export default function CursoPage() {
                     30 dias após a conclusão do curso.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <InscriptionModal>
-                      <Button
-                        className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
-                      >
-                        Inscrever-se Agora
-                      </Button>
-                    </InscriptionModal>
+                    <Button
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
+                      onClick={() =>
+                        openWhatsAppWithTracking(
+                          "5541998760734",
+                          "Olá! Quero me inscrever no curso profissional de detalhamento. Gostaria de mais informações sobre as próximas turmas.",
+                          true
+                        )
+                      }
+                    >
+                      Inscrever-se Agora
+                    </Button>
                     <Button
                       variant="outline"
                       className="px-8 py-3 text-lg bg-transparent w-full sm:w-auto"
                       onClick={() =>
-                        window.open(
-                          "https://wa.me/5541998760734?text=Olá! Gostaria de falar com um consultor sobre o curso de detalhamento profissional.",
-                          "_blank",
+                        openWhatsAppWithTracking(
+                          "5541998760734",
+                          "Olá! Gostaria de falar com um consultor sobre o curso de detalhamento profissional.",
+                          false
                         )
                       }
                     >
