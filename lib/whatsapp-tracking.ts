@@ -3,16 +3,20 @@
  */
 
 /**
- * Dispara o evento de conversão no Google Ads
- * Utiliza gtag para enviar o evento de conversão
+ * Dispara o evento de conversão no Google Ads com tags específicas
+ * Utiliza gtag para enviar o evento de conversão com label
  */
 export const fireConversionEvent = () => {
   if (typeof window === 'undefined') return
   
   try {
-    // Dispara o evento de conversão direto sem callback de URL
+    // Dispara o evento de conversão com label específico da inscrição
     (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-16912435359/a8KCCMrrpZ0bEJ-RvYA_'
+      'send_to': 'AW-16912435359/a8KCCMrrpZ0bEJ-RvYA_',
+      'event_category': 'subscription',
+      'event_label': 'InscriçãoPrincipalTAG',
+      'value': 1,
+      'currency': 'BRL'
     })
     console.log('[v0] Evento de conversão disparado com sucesso')
   } catch (error) {
