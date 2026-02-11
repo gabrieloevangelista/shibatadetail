@@ -2,15 +2,32 @@
  * Utilitário para rastreamento de conversões do Google Ads em links do WhatsApp
  */
 
+/**
+ * Dispara o evento de conversão no Google Ads
+ * Utiliza gtag para enviar o evento de conversão
+ */
+export const fireConversionEvent = () => {
+  if (typeof window === 'undefined') return
+  
+  try {
+    // Dispara o evento de conversão direto sem callback de URL
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-16912435359/a8KCCMrrpZ0bEJ-RvYA_'
+    })
+    console.log('[v0] Evento de conversão disparado com sucesso')
+  } catch (error) {
+    console.warn('[v0] Erro ao disparar evento de conversão:', error)
+  }
+}
+
 export const trackWhatsAppConversion = (url: string, trackConversion: boolean = false) => {
   // Verifica se estamos no browser
   if (typeof window === 'undefined') return
   
-  // Verifica se a função gtag_report_conversion está disponível e se deve rastrear conversão
-  if (trackConversion && (window as any).gtag_report_conversion) {
+  // Se deve rastrear conversão, dispara o evento antes de abrir o link
+  if (trackConversion) {
     try {
-      // Chama a função de conversão e depois abre o link
-      (window as any).gtag_report_conversion(url)
+      fireConversionEvent()
       // Pequeno delay para garantir que a conversão seja registrada
       setTimeout(() => {
         window.open(url, "_blank", "noopener,noreferrer")
