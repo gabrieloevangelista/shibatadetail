@@ -47,8 +47,19 @@ export function InscriptionModal({ children }: InscriptionModalProps) {
     setIsSubmitting(true)
     
     try {
-      // Simular um pequeno delay para feedback visual
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Dispara o evento de conversão imediatamente
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-16912435359/a8KCCMrrpZ0bEJ-RvYA_',
+          'event_category': 'subscription',
+          'event_label': 'InscriçãoPrincipalTAG',
+          'value': 1,
+          'currency': 'BRL'
+        })
+      }
+
+      // Simular um pequeno delay para feedback visual e garantir rastreamento
+      await new Promise(resolve => setTimeout(resolve, 500))
 
       const phoneNumber = "5541998760734"
       const message = `Quero garantir minha inscrição para próxima turma\n\nNome: ${data.fullName}\nWhatsApp: ${data.whatsapp}\nE-mail: ${data.email}`
