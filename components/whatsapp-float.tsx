@@ -9,8 +9,9 @@ export function WhatsAppFloat() {
     const message = "Olá! Gostaria de saber mais sobre os serviços da Shibata Premium Detail."
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     
-    console.log('Clicou no botão WhatsApp, abrindo:', whatsappUrl)
-    trackWhatsAppConversion(whatsappUrl, false) // Não ativa a tag de conversão
+    console.log('[v0] Clicou no botão WhatsApp flutuante, disparando evento de conversão')
+    // Rastreia o evento de conversão quando o botão flutuante é clicado
+    trackWhatsAppConversion(whatsappUrl, true)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

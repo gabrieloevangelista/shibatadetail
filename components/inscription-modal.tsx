@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Loader2 } from "lucide-react"
+import { trackWhatsAppConversion } from "@/lib/whatsapp-tracking"
 
 const formSchema = z.object({
   fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
@@ -53,10 +54,9 @@ export function InscriptionModal({ children }: InscriptionModalProps) {
       const message = `Quero garantir minha inscrição para próxima turma\n\nNome: ${data.fullName}\nWhatsApp: ${data.whatsapp}\nE-mail: ${data.email}`
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
       
-      // Rastreamento (se houver func de track, chamar aqui)
-      // Por enquanto apenas abre o whats
+      // Rastreia o evento de conversão e abre o WhatsApp
+      trackWhatsAppConversion(whatsappUrl, true)
       
-      window.open(whatsappUrl, "_blank")
       setOpen(false)
       reset()
     } catch (error) {
