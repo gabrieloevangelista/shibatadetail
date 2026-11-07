@@ -126,7 +126,7 @@ export default function CursoPage() {
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                 Turmas diurnas e noturnas disponíveis • Mais de 2 mil alunos formados
               </p>
-              
+
               {/* Video and Graduates Section (Side-by-side on desktop, clean vertical video on mobile) */}
               <div className="mt-8 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
                 {/* Video Column */}
