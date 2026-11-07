@@ -4,9 +4,9 @@ import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
-import { useState, useRef, useEffect } from "react"
 import { openWhatsAppWithTracking } from "@/lib/whatsapp-tracking"
 import { GraduatesCarousel } from "@/components/graduates-carousel"
+import { CustomVideoPlayer } from "@/components/custom-video-player"
 
 const courseModules = [
   {
@@ -109,55 +109,6 @@ const benefits = [
 ]
 
 export default function CursoPage() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isPreview, setIsPreview] = useState(true)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0
-      videoRef.current.muted = true
-      videoRef.current.loop = true
-      videoRef.current.play().catch(console.error)
-    }
-  }, [])
-
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPreview) {
-        videoRef.current.currentTime = 0
-        videoRef.current.muted = false
-        videoRef.current.loop = false
-        videoRef.current.play()
-        setIsPreview(false)
-        setIsPlaying(true)
-      } else if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
-    }
-  }
-
-  const handleVideoPlay = () => {
-    setIsPlaying(true)
-  }
-
-  const handleVideoPause = () => {
-    setIsPlaying(false)
-  }
-
-  const handleVideoEnded = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0
-      videoRef.current.muted = true
-      videoRef.current.loop = true
-      videoRef.current.play()
-      setIsPreview(true)
-      setIsPlaying(false)
-    }
-  }
-
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <Header />
@@ -176,34 +127,26 @@ export default function CursoPage() {
                 Turmas diurnas e noturnas disponíveis • Mais de 2 mil alunos formados
               </p>
               
-              {/* Video Centered */}
-              <div className="w-full md:w-fit max-w-4xl mx-auto relative group mt-8">
-                <video
-                  ref={videoRef}
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_2QBODDdI8A8tsCTNZiinY9ticHig/XBJvyM7_SJO2JB0_QCoq6s/public/sobre-video.mp4"
-                  className="rounded-lg shadow-2xl w-full h-auto md:w-auto md:max-h-[500px]"
-                  controls={!isPreview}
-                  preload="auto"
-                  playsInline
-                  onPlay={handleVideoPlay}
-                  onPause={handleVideoPause}
-                  onEnded={handleVideoEnded}
-                >
-                  Seu navegador não suporta o elemento de vídeo.
-                </video>
+              {/* Video and Graduates Section (Side-by-side on desktop, clean vertical video on mobile) */}
+              <div className="mt-8 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
+                {/* Video Column */}
+                <div className="w-full max-w-[320px] sm:max-w-[340px] md:max-w-[360px] flex-shrink-0 mx-auto lg:mx-0">
+                  <CustomVideoPlayer
+                    src="/apresentacao%20shibata.mp4"
+                    autoPlayPreview={true}
+                  />
+                </div>
 
-                {(isPreview || !isPlaying) && (
-                  <div
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                    onClick={handlePlayPause}
-                  >
-                    <div className="w-20 h-20 rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 transition-all duration-300">
-                      <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
+                {/* Desktop-only Graduates Column */}
+                <div className="hidden lg:flex flex-col justify-center flex-1 min-w-0 text-left overflow-hidden">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nossos Alunos Formados</h2>
+                  <p className="text-muted-foreground mb-6 text-sm md:text-base leading-relaxed">
+                    Veja alguns dos nossos alunos que concluíram o curso e receberam certificação profissional em detalhamento automotivo
+                  </p>
+                  <div className="w-full overflow-hidden rounded-xl">
+                    <GraduatesCarousel />
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </AnimatedSection>
@@ -315,8 +258,8 @@ export default function CursoPage() {
                 </div>
               </AnimatedSection>
 
-              {/* Graduates Gallery */}
-              <AnimatedSection delay={0.45}>
+              {/* Graduates Gallery (Exibido apenas em mobile/tablet para evitar repetição no desktop) */}
+              <AnimatedSection delay={0.45} className="lg:hidden">
                 <div className="mb-16">
                   <h2 className="text-3xl font-bold text-white mb-4 text-center">Nossos Alunos Formados</h2>
                   <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">

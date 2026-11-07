@@ -45,7 +45,19 @@ export function GraduatesCarousel() {
     const scrollContainer = scrollRef.current
     if (!scrollContainer) return
 
+    let isPaused = false
+    const handleMouseEnter = () => {
+      isPaused = true
+    }
+    const handleMouseLeave = () => {
+      isPaused = false
+    }
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter)
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave)
+
     const scroll = () => {
+      if (isPaused) return
       if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
         scrollContainer.scrollLeft = 0
       } else {
@@ -55,7 +67,11 @@ export function GraduatesCarousel() {
 
     const interval = setInterval(scroll, 20)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+      scrollContainer.removeEventListener("mouseenter", handleMouseEnter)
+      scrollContainer.removeEventListener("mouseleave", handleMouseLeave)
+    }
   }, [])
 
   return (
