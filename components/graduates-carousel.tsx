@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
 import Image from "next/image"
+import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const graduateImages = [
   {
@@ -40,6 +41,42 @@ const graduateImages = [
 
 export function GraduatesCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index % graduateImages.length)
+  }
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null)
+  }, [])
+
+  const goPrev = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev - 1 + graduateImages.length) % graduateImages.length
+    )
+  }, [])
+
+  const goNext = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev + 1) % graduateImages.length
+    )
+  }, [])
+
+  useEffect(() => {
+    if (lightboxIndex === null) return
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox()
+      if (e.key === "ArrowLeft") goPrev()
+      if (e.key === "ArrowRight") goNext()
+    }
+    document.addEventListener("keydown", handleKey)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", handleKey)
+      document.body.style.overflow = ""
+    }
+  }, [lightboxIndex, closeLightbox, goPrev, goNext])
 
   useEffect(() => {
     const scrollContainer = scrollRef.current
@@ -75,43 +112,106 @@ export function GraduatesCarousel() {
   }, [])
 
   return (
-    <div className="w-full overflow-hidden">
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide"
-        style={{
-          scrollBehavior: "smooth",
-        }}
-      >
-        {/* Duplicar as imagens para criar efeito infinito */}
-        {[...graduateImages, ...graduateImages].map((image, index) => (
+    <>
+      <div className="w-full overflow-hidden">
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto scrollbar-hide"
+          style={{
+            scrollBehavior: "smooth",
+          }}
+        >
+          {[...graduateImages, ...graduateImages].map((image, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => openLightbox(index)}
+              className="flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary group"
+              style={{ width: "280px", height: "373px" }}
+              aria-label={`Abrir imagem: ${image.alt}`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="280px"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            </button>
+          ))}
+        </div>
+
+        <style jsx global>{`
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
+      </div>
+
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            onClick={closeLightbox}
+            aria-label="Fechar"
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              goPrev()
+            }}
+            aria-label="Imagem anterior"
+            className="absolute left-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              goNext()
+            }}
+            aria-label="Próxima imagem"
+            className="absolute right-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+
           <div
-            key={index}
-            className="flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-            style={{ width: "280px", height: "373px" }}
+            className="relative w-[90vw] h-[80vh] max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={image.src}
-              alt={image.alt}
+              src={graduateImages[lightboxIndex].src}
+              alt={graduateImages[lightboxIndex].alt}
               fill
-              className="object-cover"
-              sizes="280px"
+              className="object-contain rounded-lg"
+              sizes="90vw"
               unoptimized
+              priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
           </div>
-        ))}
-      </div>
-      
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </div>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/60 text-white text-sm font-medium">
+            {lightboxIndex + 1} / {graduateImages.length}
+          </div>
+        </div>
+      )}
+    </>
   )
 }

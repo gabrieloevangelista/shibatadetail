@@ -354,7 +354,7 @@ export function CustomVideoPlayer({
         className={`cursor-pointer block transition-all duration-300 ${
           isFullscreen
             ? "h-full w-auto max-h-screen aspect-[9/16] object-contain mx-auto"
-            : "w-full h-auto max-h-[520px] aspect-[9/16] object-contain mx-auto"
+            : "w-full h-auto max-h-[520px] aspect-[9/16] object-cover mx-auto"
         }`}
         playsInline
         preload="auto"

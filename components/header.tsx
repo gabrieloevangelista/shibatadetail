@@ -13,7 +13,7 @@ const ShibataLogo = ({ className }: { className?: string }) => (
 )
 
 const navItems = [
-  { name: "Início", href: "/" },
+  { name: "Início", href: "/pagina-inicial" },
   { name: "Sobre", href: "/sobre" },
   { name: "Serviços", href: "/servicos" },
   { name: "Curso", href: "/curso" },
@@ -68,7 +68,7 @@ export const Header = memo(function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Link
-            href="/"
+            href="/pagina-inicial"
             className="hover:opacity-80 focus:opacity-80 transition-opacity rounded"
           >
             <ShibataLogo className="h-[70px] w-auto" />

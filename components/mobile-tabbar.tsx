@@ -30,7 +30,7 @@ export function MobileTabbar() {
   }, [lastScrollY])
 
   const tabItems = [
-    { name: "Início", href: "/", icon: Home },
+    { name: "Início", href: "/pagina-inicial", icon: Home },
     { name: "Serviços", href: "/servicos", icon: Settings },
     { name: "Curso", href: "/curso", icon: GraduationCap },
     { name: "Galeria", href: "/galeria", icon: Image },
