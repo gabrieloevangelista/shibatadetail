@@ -343,7 +343,7 @@ export function CustomVideoPlayer({
       className={`relative group/player overflow-hidden bg-black outline-none ring-0 focus:outline-none focus-visible:outline-none select-none transition-all duration-300 ${
         isFullscreen
           ? "fixed inset-0 z-50 w-screen h-screen flex items-center justify-center rounded-none border-none"
-          : "rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+          : "w-full aspect-[9/16] max-h-[520px] mx-auto rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
       } ${className}`}
     >
       {/* Video Element */}
@@ -353,8 +353,8 @@ export function CustomVideoPlayer({
         poster={poster}
         className={`cursor-pointer block transition-all duration-300 ${
           isFullscreen
-            ? "h-full w-auto max-h-screen aspect-[9/16] object-contain mx-auto"
-            : "w-full h-auto max-h-[520px] aspect-[9/16] object-cover mx-auto"
+            ? "h-full w-auto max-h-screen object-contain mx-auto"
+            : "w-full h-full object-cover"
         }`}
         playsInline
         preload="auto"
