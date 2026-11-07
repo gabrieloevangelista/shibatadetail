@@ -340,10 +340,10 @@ export function CustomVideoPlayer({
       onKeyDown={handleKeyDown}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative group/player overflow-hidden bg-black outline-none select-none transition-all duration-300 ${
+      className={`relative group/player overflow-hidden bg-black outline-none ring-0 focus:outline-none focus-visible:outline-none select-none transition-all duration-300 ${
         isFullscreen
           ? "fixed inset-0 z-50 w-screen h-screen flex items-center justify-center rounded-none border-none"
-          : "rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+          : "rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
       } ${className}`}
     >
       {/* Video Element */}
@@ -367,11 +367,11 @@ export function CustomVideoPlayer({
         Seu navegador não suporta a reprodução deste vídeo.
       </video>
 
-      {/* Center Minimal Play Button (When in Preview or Paused) */}
+      {/* Center Minimal Play Button (Only on Hover when in Preview or Paused) */}
       {(isPreview || !isPlaying) && (
         <div
           onClick={togglePlay}
-          className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 backdrop-blur-[1px] transition-all duration-300 z-10"
+          className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 backdrop-blur-[1px] transition-opacity duration-300 z-10 opacity-0 group-hover/player:opacity-100"
         >
           <div className="relative group/playbtn flex items-center justify-center">
             {/* Subtle red glow */}
@@ -391,13 +391,13 @@ export function CustomVideoPlayer({
           isFullscreen
             ? "h-36 max-w-[500px] mx-auto bg-gradient-to-t from-black/90 via-black/40 to-transparent"
             : "h-24 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
-        } ${showControls && !isPreview ? "opacity-100" : "opacity-0"}`}
+        } ${showControls && !isPreview && isFullscreen ? "opacity-100" : "opacity-0"}`}
       />
 
       {/* Minimalist Bottom Control Bar */}
       <div
         className={`absolute bottom-0 inset-x-0 px-3 pb-3 pt-2 md:px-5 md:pb-4 transition-all duration-300 z-30 flex justify-center ${
-          showControls && !isPreview
+          showControls && !isPreview && isFullscreen
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-2 pointer-events-none"
         }`}
