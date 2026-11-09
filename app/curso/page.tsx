@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { openWhatsAppWithTracking } from "@/lib/whatsapp-tracking"
 import { GraduatesCarousel } from "@/components/graduates-carousel"
 import { CustomVideoPlayer } from "@/components/custom-video-player"
+import { Calendar, Clock, Sun, Moon, Gift, CheckCircle2, CreditCard } from "lucide-react"
 
 const courseModules = [
   {
@@ -89,8 +90,8 @@ const benefits = [
         />
       </svg>
     ),
-    title: "Prática Intensiva",
-    description: "Todos os alunos recebem 3 dias de treinamento GRÁTIS com veículos reais em nosso workshop",
+    title: "Treinamento Prático Extra",
+    description: "3 dias de treinamento prático acompanhando nossa equipe no dia a dia da empresa",
   },
   {
     icon: (
@@ -104,7 +105,7 @@ const benefits = [
       </svg>
     ),
     title: "Cortesia PPF",
-    description: "Cortesia de PPF de conchas e colunas de portas para todos os alunos",
+    description: "Cortesia: aplicação de PPF em colunas e conchas de maçaneta",
   },
 ]
 
@@ -124,7 +125,7 @@ export default function CursoPage() {
                 por carros em uma profissão lucrativa
               </p>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Turmas diurnas e noturnas disponíveis • Mais de 2 mil alunos formados
+                Turmas diurnas e noturnas disponíveis • Próximas turmas de 23/11 a 28/11 • Vagas limitadas
               </p>
 
               {/* Video and Graduates Section (Side-by-side on desktop, clean vertical video on mobile) */}
@@ -192,6 +193,135 @@ export default function CursoPage() {
                       </div>
                     </div>
                  </div>
+              </AnimatedSection>
+
+              {/* Próximas Turmas Section */}
+              <AnimatedSection delay={0.25}>
+                <div className="mb-16">
+                  <div className="text-center mb-10">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Próximas Turmas</h2>
+                    <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
+                      Escolha o formato ideal para sua rotina. Vagas reduzidas para garantir atenção individualizada em cada etapa prática.
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    {/* Turma Noturna */}
+                    <div className="relative rounded-2xl border border-white/15 bg-card/40 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+                      <div>
+                        <div className="flex items-center justify-between mb-5">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+                              <Moon className="w-6 h-6" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-white">Turma Noturna</h3>
+                              <span className="text-xs text-muted-foreground">Ideal para conciliar com o trabalho</span>
+                            </div>
+                          </div>
+                          <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary text-white shadow-md">
+                            6 DIAS
+                          </span>
+                        </div>
+
+                        <div className="bg-black/40 rounded-xl p-4 border border-white/10 mb-6 space-y-3">
+                          <div className="flex items-center gap-2.5 text-sm">
+                            <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="font-bold text-white text-base">23/11 a 28/11</span>
+                          </div>
+                          <div className="flex items-start gap-2.5 text-xs text-muted-foreground border-t border-white/10 pt-2.5">
+                            <Clock className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                            <div className="space-y-1 text-sm">
+                              <p><strong className="text-white">Segunda a Sexta:</strong> 19:00 às 22:00</p>
+                              <p><strong className="text-white">Sábado:</strong> 09:00 às 17:00</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-2 text-xs text-muted-foreground mb-6">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>6 encontros com aulas práticas e teóricas</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>Treinamento intensivo direto no workshop</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <Button
+                        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all"
+                        onClick={() =>
+                          openWhatsAppWithTracking(
+                            "5541998760734",
+                            "Olá! Quero me inscrever na TURMA NOTURNA (23/11 a 28/11) do curso profissional de detalhamento.",
+                            true
+                          )
+                        }
+                      >
+                        Garantir Vaga Noturna
+                      </Button>
+                    </div>
+
+                    {/* Turma Diurna */}
+                    <div className="relative rounded-2xl border border-white/15 bg-card/40 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+                      <div>
+                        <div className="flex items-center justify-between mb-5">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+                              <Sun className="w-6 h-6" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-white">Turma Diurna</h3>
+                              <span className="text-xs text-muted-foreground">Imersão intensiva acelerada</span>
+                            </div>
+                          </div>
+                          <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary text-white shadow-md">
+                            3 DIAS
+                          </span>
+                        </div>
+
+                        <div className="bg-black/40 rounded-xl p-4 border border-white/10 mb-6 space-y-3">
+                          <div className="flex items-center gap-2.5 text-sm">
+                            <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="font-bold text-white text-base">26/11 a 28/11</span>
+                          </div>
+                          <div className="flex items-start gap-2.5 text-xs text-muted-foreground border-t border-white/10 pt-2.5">
+                            <Clock className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                            <div className="text-sm">
+                              <p><strong className="text-white">Quinta a Sábado:</strong> 09:00 às 17:00</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-2 text-xs text-muted-foreground mb-6">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>3 dias completos de imersão 100% prática</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>Mesmo conteúdo completo em formato concentrado</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <Button
+                        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all"
+                        onClick={() =>
+                          openWhatsAppWithTracking(
+                            "5541998760734",
+                            "Olá! Quero me inscrever na TURMA DIURNA (26/11 a 28/11) do curso profissional de detalhamento.",
+                            true
+                          )
+                        }
+                      >
+                        Garantir Vaga Diurna
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </AnimatedSection>
 
               {/* Course Modules */}
@@ -270,21 +400,96 @@ export default function CursoPage() {
                 </div>
               </AnimatedSection>
 
-              {/* Final CTA Section (antigo Investment) */}
+              {/* Final CTA Section (Investimento & Bônus) */}
               <AnimatedSection delay={0.5}>
-                <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-                  <h2 className="text-3xl font-bold text-white mb-4">Garanta sua Vaga</h2>
-                  <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Investimento que se paga em poucos serviços. Nossos alunos relatam retorno do investimento em menos de
-                    30 dias após a conclusão do curso.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="bg-card/50 backdrop-blur-md rounded-3xl border border-white/15 p-6 sm:p-10 max-w-4xl mx-auto text-center shadow-2xl relative overflow-hidden">
+                  <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/15 blur-3xl" />
+
+                  <div className="mb-8 relative z-10">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Garanta sua Vaga</h2>
+                    <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+                      Investimento que se paga em poucos serviços. Nossos alunos relatam retorno do investimento em menos de 30 dias após a conclusão do curso.
+                    </p>
+                  </div>
+
+                  {/* Pricing Cards */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-8 relative z-10 text-left">
+                    {/* À Vista */}
+                    <div className="rounded-2xl border border-primary/40 bg-black/60 p-6 flex flex-col justify-between relative overflow-hidden group hover:border-primary transition-all">
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs uppercase font-semibold tracking-wider text-muted-foreground">
+                            Pagamento à Vista
+                          </span>
+                          <span className="text-xs font-semibold text-primary">
+                            Economia de R$ 200
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-1 mb-2">
+                          <span className="text-lg text-muted-foreground">R$</span>
+                          <span className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">1.600</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-4">
+                          via Pix ou dinheiro no ato da inscrição
+                        </p>
+                      </div>
+                      <div className="text-xs text-white/80 space-y-1.5 border-t border-white/10 pt-3">
+                        <div className="flex items-center gap-1.5 text-white/90">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                          <span>Melhor condição para pagamento único</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Parcelado */}
+                    <div className="rounded-2xl border border-white/15 bg-black/40 p-6 flex flex-col justify-between group hover:border-white/30 transition-all">
+                      <div>
+                        <span className="text-xs uppercase font-semibold tracking-wider text-muted-foreground block mb-2">
+                          Parcelamento no Cartão
+                        </span>
+                        <div className="flex items-baseline gap-1 mb-2">
+                          <span className="text-lg text-muted-foreground">10x de</span>
+                          <span className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">R$ 180</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-4">
+                          Total de R$ 1.800 sem juros
+                        </p>
+                      </div>
+                      <div className="text-xs text-white/80 space-y-1.5 border-t border-white/10 pt-3">
+                        <div className="flex items-center gap-1.5 text-white/90">
+                          <CreditCard className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                          <span>Em até 10x sem juros no cartão de crédito</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bônus Exclusivos Box */}
+                  <div className="bg-primary/10 border border-primary/25 rounded-2xl p-5 sm:p-6 mb-8 relative z-10 text-left">
+                    <div className="flex items-center gap-2 text-primary font-bold text-base mb-3">
+                      <Gift className="w-5 h-5 text-primary" />
+                      <span>Bônus ao Concluir o Treinamento:</span>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-3 text-sm text-white/90">
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>3 dias de treinamento prático</strong> acompanhando nossa equipe no dia a dia da empresa</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Cortesia especial:</strong> aplicação de PPF em colunas e conchas de maçaneta</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                     <Button
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg w-full sm:w-auto"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all w-full sm:w-auto"
                       onClick={() =>
                         openWhatsAppWithTracking(
                           "5541998760734",
-                          "Olá! Quero me inscrever no curso profissional de detalhamento. Gostaria de mais informações sobre as próximas turmas.",
+                          "Olá! Quero me inscrever no curso profissional de detalhamento e garantir minha vaga nas próximas turmas.",
                           true
                         )
                       }
@@ -293,7 +498,7 @@ export default function CursoPage() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="px-8 py-3 text-lg bg-transparent w-full sm:w-auto"
+                      className="px-8 py-4 text-lg bg-transparent text-white border-white/20 hover:bg-white hover:text-black rounded-full transition-all w-full sm:w-auto"
                       onClick={() =>
                         openWhatsAppWithTracking(
                           "5541998760734",
